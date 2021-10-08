@@ -36,6 +36,9 @@ class LoginPage extends StatelessWidget {
               titleSection,
               textSection,
               inputSection,
+              const ButtonWidget(),
+              bottomSection,
+              forgetButton,
             ],
           ),
         ),
@@ -73,7 +76,6 @@ Widget flutterIcon = Container(
 );
 
 Widget titleSection = Container(
-  padding: const EdgeInsets.all(30),
   margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
   child: Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -102,7 +104,7 @@ Widget titleSection = Container(
 );
 
 Widget textSection = Container(
-  padding: const EdgeInsets.fromLTRB(0, 5, 0, 50),
+  padding: const EdgeInsets.fromLTRB(0, 5, 0, 20),
   child: Text(
     "Page de connexion",
     style: GoogleFonts.comfortaa(
@@ -212,5 +214,81 @@ Widget inputSection = Container(
         ),
       ),
     ],
+  ),
+);
+
+class ButtonWidget extends StatelessWidget {
+  const ButtonWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        padding: const EdgeInsets.fromLTRB(100, 15, 100, 15),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30)),
+        ),
+      ),
+      child: Text(
+        "Connexion".toUpperCase(),
+        style: TextStyle(
+          color: Colors.blue[900],
+          fontSize: 20.0,
+        ),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SignupPage()),
+        );
+      },
+    );
+  }
+}
+
+Widget bottomSection = Container(
+  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(
+        'Pas encore de compte ?',
+        style: GoogleFonts.comfortaa(color: Colors.white),
+      ),
+      const SignupButton(),
+    ],
+  ),
+);
+
+class SignupButton extends StatelessWidget {
+  const SignupButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SignupPage()),
+        );
+      },
+      child: Text(
+        "Inscrivez-vous",
+        style: GoogleFonts.comfortaa(color: Colors.white),
+      ),
+    );
+  }
+}
+
+Widget forgetButton = Container(
+  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+  child: TextButton(
+    onPressed: () {},
+    child: Text(
+      "Mot de passe oublié ?",
+      style: GoogleFonts.comfortaa(
+          color: Colors.white, fontWeight: FontWeight.bold),
+    ),
   ),
 );
