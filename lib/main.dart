@@ -35,6 +35,7 @@ class LoginPage extends StatelessWidget {
               flutterIcon,
               titleSection,
               textSection,
+              inputSection,
             ],
           ),
         ),
@@ -108,5 +109,108 @@ Widget textSection = Container(
       fontSize: 16,
       fontWeight: FontWeight.bold,
     ),
+  ),
+);
+
+Widget inputSection = Container(
+  margin: const EdgeInsets.all(30),
+  child: Column(
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(width: 1, color: Colors.white30),
+        ),
+        height: 60,
+        child: Row(
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Icon(
+                Icons.people_outline,
+                size: 30,
+                color: Colors.blue[900],
+              ),
+            ),
+            SizedBox(
+              height: 60,
+              width: 230,
+              child: Center(
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  obscureText: false,
+                  style: GoogleFonts.comfortaa(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Pseudo',
+                    hintStyle: GoogleFonts.comfortaa(
+                      color: Colors.white,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 30),
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(width: 1, color: Colors.white30),
+        ),
+        height: 60,
+        child: Row(
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Icon(
+                Icons.lock_outline,
+                size: 30,
+                color: Colors.blue[900],
+              ),
+            ),
+            SizedBox(
+              height: 60,
+              width: 230,
+              child: Center(
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  obscureText: true,
+                  style: GoogleFonts.comfortaa(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'Mot de passe',
+                    hintStyle: GoogleFonts.comfortaa(
+                      color: Colors.white,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
   ),
 );
